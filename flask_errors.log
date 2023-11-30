@@ -1,0 +1,35 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8765
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [30/Nov/2023 18:19:50] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:8765
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:app:Error: Object of type int64 is not JSON serializable
+ERROR:app:Traceback (most recent call last):
+  File "/Users/prateek/Desktop/mantanence/app.py", line 40, in predict
+    return jsonify({"prediction": prediction})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/site-packages/flask/json/__init__.py", line 342, in jsonify
+    return current_app.json.response(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/site-packages/flask/json/provider.py", line 309, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/site-packages/flask/json/provider.py", line 230, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/prateek/anaconda3/lib/python3.11/site-packages/flask/json/provider.py", line 122, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type int64 is not JSON serializable
+
+INFO:werkzeug:127.0.0.1 - - [30/Nov/2023 18:50:55] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -
